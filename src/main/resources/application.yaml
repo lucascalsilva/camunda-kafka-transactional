@@ -1,0 +1,21 @@
+spring:
+  datasource.url: jdbc:h2:file:./camunda-h2-database
+  h2.console.enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      transaction-id-prefix: tx-
+      properties:
+        enable.idempotence: true
+        transactional.id: tran-id-1
+    consumer:
+      group-id: group-1
+      enable-auto-commit: false
+      isolation-level: read_committed
+
+camunda.bpm.admin-user:
+  id: demo
+  password: demo
+
+custom:
+  sample-topic-name: sample-topic
